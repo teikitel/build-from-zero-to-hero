@@ -1,3 +1,5 @@
+all: hello
+
 hellolib.o: hellolib.c
 	gcc -c hellolib.c -o hellolib.o
 
