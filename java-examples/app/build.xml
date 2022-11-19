@@ -1,12 +1,12 @@
 <project name="HelloWorld" basedir="." default="main">
-    <property name="src.dir"     value="src/main/java"/>
-    <property name="test.dir"    value="src/test/java"/>
-    <property name="build.dir"   value="build"/>
-    <property name="report.dir"  value="${build.dir}/junitreport"/>
-    <property name="classes.dir" value="${build.dir}/classes"/>
-    <property name="test-classes.dir" value="${build.dir}/test-classes"/>
-    <property name="jar.dir"     value="${build.dir}/jar"/>
-    <property name="main-class"  value="hello.App"/>
+    <property name="src.dir"            value="src/main/java"/>
+    <property name="test.dir"           value="src/test/java"/>
+    <property name="build.dir"          value="build"/>
+    <property name="classes.dir"        value="${build.dir}/classes"/>
+    <property name="test-classes.dir"   value="${build.dir}/test-classes"/>
+    <property name="jar.dir"            value="${build.dir}/jar"/>
+    <property name="report.dir"         value="${build.dir}/junitreport"/>
+    <property name="main-class"         value="hello.App"/>
 
     <target name="clean">
         <delete dir="${build.dir}"/>
@@ -14,6 +14,7 @@
 
     <target name="compile">
         <mkdir dir="${classes.dir}"/>
+        <mkdir dir="${test-classes.dir}"/>
         <javac srcdir="${src.dir}" destdir="${classes.dir}"/>
         <javac srcdir="${src.dir}" destdir="${test-classes.dir}"/>
     </target>
@@ -46,7 +47,7 @@
         <javac srcdir="${test.dir}" destdir="${test-classes.dir}" includeantruntime="true" nowarn="yes" debug="true" />
     </target>
     
-    <target name="junit" depends="compileTest">
+    <target name="test" depends="compileTest">
         <mkdir dir="${report.dir}"/>
         <junit printsummary="yes">
             <classpath>
@@ -60,12 +61,5 @@
                 <fileset dir="${test.dir}" includes="**/*Test.java"/>
             </batchtest>
         </junit>
-    </target>
-
-    <target name="junitreport">
-        <junitreport todir="${report.dir}">
-            <fileset dir="${report.dir}" includes="TEST-*.xml"/>
-            <report todir="${report.dir}"/>
-        </junitreport>
     </target>
 </project>
