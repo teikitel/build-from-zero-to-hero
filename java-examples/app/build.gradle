@@ -10,6 +10,11 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
 }
 
+jar {
+    archiveBaseName = 'hello'
+    archiveVersion = '1.0.0'
+}
+
 application {
     mainClass = 'hello.App'
 }
