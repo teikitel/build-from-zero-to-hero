@@ -1,0 +1,10 @@
+plugins {
+    id("com.gradle.enterprise").version("3.11.1")
+}
+
+buildCache {
+    local {
+        directory = new File(System.getenv("HOME"), '.build-cache')
+        removeUnusedEntriesAfterDays = 30
+    }
+}
