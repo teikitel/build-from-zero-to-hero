@@ -15,8 +15,8 @@
     <target name="compile">
         <mkdir dir="${classes.dir}"/>
         <mkdir dir="${test-classes.dir}"/>
-        <javac srcdir="${src.dir}" destdir="${classes.dir}"/>
-        <javac srcdir="${src.dir}" destdir="${test-classes.dir}"/>
+        <javac srcdir="${src.dir}" destdir="${classes.dir}" includeantruntime="true" nowarn="yes" debug="true" />
+        <javac srcdir="${src.dir}" destdir="${test-classes.dir}" includeantruntime="true" nowarn="yes" debug="true"/>
     </target>
 
     <target name="jar" depends="compile">
