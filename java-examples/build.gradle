@@ -13,6 +13,9 @@ dependencies {
 jar {
     archiveBaseName = 'hello'
     archiveVersion = '1.0.0'
+    manifest {
+        attributes["Main-Class"] = "hello.App"
+    }
 }
 
 application {

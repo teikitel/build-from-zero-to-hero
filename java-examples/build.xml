@@ -42,7 +42,7 @@
     
     <target name="main" depends="clean,run"/>
     
-    <target name="compileTest" depends="compile" description="compile jUnit Test cases ">
+    <target name="compileTest" depends="compile" >
         <mkdir dir="${test-classes.dir}"/>
         <javac srcdir="${test.dir}" destdir="${test-classes.dir}" includeantruntime="true" nowarn="yes" debug="true" />
     </target>
