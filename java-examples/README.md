@@ -15,10 +15,18 @@
 # Gradle
 1. Optional - Install `gradle` with [SDK! Man](https://sdkman.io/) for example
 2. Run `./gradlew tasks` to list all the available tasks
-4. Run several times `./gradlew jar` to witness incrementality. `compile` target for example shouldn't do anything on second run
-5. Run `./gradlew build --scan` to export a build scan at the end of the build. Explore the build scan
-6. Try hello with `./gradlew run` or `java -jar build/libs/hello-1.0.0.jar`
-7. Clean with `./gradlew clean`
+3. Run several times `./gradlew jar` to witness incrementality. `compile` target for example shouldn't do anything on second run
+4. Try hello with `./gradlew run` or `java -jar build/libs/hello-1.0.0.jar`
+5. Clean with `./gradlew clean`
+
+## Cache
+1. Run `./gradlew build --cache`
+2. Clean the workspace `git clean -fxd`
+3. Run again `./gradlew build --cache`. You should notice that some tasks were pulled from the cache
+4. Run again `./gradlew build --cache`. You should notice that all tasks were already up to date
+
+## Build intelligence platform
+1. Run `./gradlew build --cache --scan` to export a build scan at the end of the build. Explore the build scan
 
 # Bazel
 1. Install `bazel`. On Centos for example: `sudo yum install bazel`

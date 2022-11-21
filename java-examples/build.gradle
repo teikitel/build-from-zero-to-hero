@@ -21,3 +21,11 @@ jar {
 application {
     mainClass = 'hello.App'
 }
+
+tasks.register("backup", Copy) {
+    from(sourceSets.main.output)
+    into(project.layout.buildDirectory.dir("backup"))
+    outputs.cacheIf {
+        true
+    }
+}
